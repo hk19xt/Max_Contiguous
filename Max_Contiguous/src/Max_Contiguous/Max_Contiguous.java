@@ -10,6 +10,7 @@ public class Max_Contiguous {
 
         int[] addedElements = new int[inputNumbers.length];
         int initial = 0;
+        int zero = 0;
         int result = addedElements[initial];
         addedElements[initial] = inputNumbers[initial]; //The new sub-array for adding the contiguous elements.
 
@@ -19,7 +20,7 @@ public class Max_Contiguous {
             if(addedElements[position-1]>0){ //If the element is larger than zero, then it will be summed in the new sub-array.
                 addedElements[position]= inputNumbers[position]+addedElements[position-1];
             }else{ //If the element is smaller than zero, then it will be treated as non-value, zero, in order to find the maximum value.
-                addedElements[position] = inputNumbers[position] + 0;
+                addedElements[position] = inputNumbers[position] + zero;
             }
             result = Math.max(result, addedElements[position]); //Compare the current added sub-array value and the previous sub-array value in order to find the max value.
         }
